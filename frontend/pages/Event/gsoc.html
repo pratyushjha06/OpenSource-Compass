@@ -728,6 +728,12 @@ body.dark-mode .gsoc-cta:hover {
             animation-delay: 0.6s;
         }
 
+        
+
+        /* ---------- Process Stepper ---------- */
+        .process-stepper {
+            padding: 80px 8%;
+            background-color: var(--white);
         @keyframes phaseReveal {
             to {
                 opacity: 1;
@@ -1477,6 +1483,74 @@ body.dark-mode .gsoc-cta:hover {
             position: relative;
         }
 
+        .features-section {
+  padding: 80px 8%;
+  background-color: var(--light-gray);
+}
+
+.features-section h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--primary-blue);
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.features-section p {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  color: var(--text-dark);
+  font-size: 1.1rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background-color: var(--white);
+  padding: 36px;
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out both;
+  border: 2px solid transparent;
+}
+
+.feature-card:hover {
+  transform: translateY(-15px) rotate(1deg);
+  box-shadow: 0 25px 60px rgba(31, 60, 136, 0.25);
+  border-color: var(--secondary-blue);
+}
+
+.feature-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--secondary-blue), var(--success-green));
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 16px;
+                padding: 16px 5%;
+            }
         body.dark-mode .resource-card {
             background: linear-gradient(180deg, var(--deep-navy), var(--light-parchment));
             color: var(--text-primary);
@@ -1779,6 +1853,87 @@ body.dark-mode .gsoc-cta:hover {
             <p>A clear step-by-step path from preparation to success</p>
         </div>
 
+    <!-- Why Choose GSoC Section -->
+<section class="features-section">
+  <h2>Why Choose GSoC?</h2>
+  <p>Discover what makes Google Summer of Code a premier open source program for serious contributors</p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-card-content">
+        <div class="feature-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <h3>Global Recognition</h3>
+        <p>GSoC is recognized worldwide and adds strong credibility to your developer profile and resume.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-card-content">
+        <div class="feature-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3>Real-World Open Source</h3>
+        <p>Work on production-grade open source projects used by thousands of developers globally.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-card-content">
+        <div class="feature-icon">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <h3>Expert Mentorship</h3>
+        <p>Receive one-on-one mentorship from experienced maintainers and industry professionals.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-card-content">
+        <div class="feature-icon">
+          <i class="fas fa-dollar-sign"></i>
+        </div>
+        <h3>Paid Stipend</h3>
+        <p>Earn a competitive stipend while contributing meaningfully to open source projects.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-card-content">
+        <div class="feature-icon">
+          <i class="fas fa-network-wired"></i>
+        </div>
+        <h3>Strong Network</h3>
+        <p>Build long-term connections with global developers, mentors, and open source communities.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-card-content">
+        <div class="feature-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h3>Career Acceleration</h3>
+        <p>Past GSoC contributors often convert experience into full-time roles and internships.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Process Stepper -->
+    <section class="process-stepper">
+        <h2>Your GSoC Journey</h2>
+        <div class="stepper-container">
+            <div class="stepper-line"></div>
+            <div class="stepper-steps">
+                <div class="stepper-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Find Organization</h3>
+                        <div class="step-date">February 19, 2026 onwards</div>
+                        <p>Google announces the official list of mentoring organizations. Shortlist 2-3 organizations that match your tech stack.</p>
+                    </div>
         <div class="journey-stepper">
             <div class="journey-line"></div>
 
@@ -2132,7 +2287,10 @@ body.dark-mode .gsoc-cta:hover {
         }, observerOptions);
 
         // Observe elements with enhanced animations
-        document.querySelectorAll('.timeline-card, .stepper-step, .stipend-card').forEach((el, index) => {
+        document.querySelectorAll(
+  '.feature-card, .timeline-card, .stepper-step, .stipend-card'
+)
+.forEach((el, index) => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px) scale(0.95)';
             el.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
